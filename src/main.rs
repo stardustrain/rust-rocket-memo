@@ -1,15 +1,15 @@
 #![feature(proc_macro_hygiene, decl_macro)]
-use rocket::Route;
+use rocket::{routes};
 
 mod memo;
 mod utils;
 
-fn get_routes() -> Vec<Route> {
-    memo::get_memo_routes()
-}
+use memo::controller;
 
 fn main() {
     rocket::ignite()
-        .mount("/", get_routes())
+        .mount("/", routes![
+            controller::get_memo_list,
+        ])
         .launch();
 }

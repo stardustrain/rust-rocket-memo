@@ -1,5 +1,2 @@
-mod controller;
-mod urls;
+pub mod controller;
 mod model;
-
-pub use self::urls::get_memo_routes;
