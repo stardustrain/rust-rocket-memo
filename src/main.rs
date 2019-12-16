@@ -2,11 +2,14 @@
 use rocket::Route;
 
 mod memo;
+mod utils;
 
 fn get_routes() -> Vec<Route> {
     memo::get_memo_routes()
 }
 
 fn main() {
-    rocket::ignite().mount("/", get_routes()).launch();
+    rocket::ignite()
+        .mount("/", get_routes())
+        .launch();
 }
